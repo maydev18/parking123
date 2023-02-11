@@ -72,6 +72,8 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                                         </div>
                                         <button type="submit"
                                             class="btn btn-primary btn-block text-uppercase mb-2 rounded-pill shadow-sm">Login</button>
+                                            <button onclick="window.open('signupform.php' , target = '_self')"
+                                            class="btn btn-primary btn-block text-uppercase mb-2 rounded-pill shadow-sm">Sign up</button>
                                     </form>
                                 </div>
                             </div>

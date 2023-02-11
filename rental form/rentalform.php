@@ -1,8 +1,34 @@
+<?php
+session_start();
+include_once("../config/config.php");
+if ($_SERVER['REQUEST_METHOD'] == "POST") {
+    if (isset($_POST['state'])) {
+        $state = $_POST['state'];
+        $city = $_POST['city'];
+        $address = $_POST['address'];
+        $pincode = $_POST['pincode'];
+        $price2 = $_POST['price2'];
+        $price4 = $_POST['price4'];
+        $number2 = $_POST['number2'];
+        $number4 = $_POST['number4'];
+        $email = $_SESSION['email'];
+        $available = 0;
+        $sql = "INSERT INTO places (state, city , address , pincode , twowheeler , fourwheeler , twoprice , fourprice ,available , email) VALUES ('$state', '$city' , '$address' , '$pincode' , '$number2' , '$number4' , '$price2' , '$price4' , '$available' , '$email')";
+        $result = mysqli_query($conn, $sql);
+        if ($result) {
+            echo "successfully added";
+            header("location: ../index.html");
+        } else {
+            echo 'cannot redirect';
+        }
+    }
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    
+
     <!-- Title Page-->
     <title>form</title>
 
@@ -10,7 +36,8 @@
     <link href="vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
     <link href="vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
     <!-- Font special for pages-->
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i"
+        rel="stylesheet">
 
     <!-- Vendor CSS-->
     <link href="vendor/select2/select2.min.css" rel="stylesheet" media="all">
@@ -29,7 +56,7 @@
                 </div>
                 <div class="card-body">
                     <form method="POST">
-                        
+
                         <div class="form-row m-b-55">
                             <div class="name">State</div>
                             <div class="value">
@@ -39,12 +66,6 @@
                                             <input class="input--style-5" type="text" name="state">
                                         </div>
                                     </div>
-                                    <!-- <div class="col-2">
-                                        <div class="input-group-desc">
-                                            <input class="input--style-5" type="text" name="last_name">
-                                            <label class="label--desc">last name</label>
-                                        </div>
-                                    </div> -->
                                 </div>
                             </div>
                         </div>
@@ -53,6 +74,14 @@
                             <div class="value">
                                 <div class="input-group">
                                     <input class="input--style-5" type="text" name="city">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="name">Complete-Address</div>
+                            <div class="value">
+                                <div class="input-group">
+                                    <input class="input--style-5" type="text-area" name="address">
                                 </div>
                             </div>
                         </div>
@@ -71,45 +100,45 @@
                                 <div class="row row-space">
                                     <div class="col-2">
                                         <div class="input-group-desc">
-                                            <input class="input--style-5" type="number" name="number">
+                                            <input class="input--style-5" type="number" name="number2">
                                             <label class="label--desc">2-Wheeler</label>
                                         </div>
                                     </div>
                                     <div class="col-2">
                                         <div class="input-group-desc">
-                                            <input class="input--style-5" type="number" name="number">
+                                            <input class="input--style-5" type="number" name="number4">
                                             <label class="label--desc">4-Wheeler</label>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        
+
                         <div class="form-row m-b-55">
                             <div class="name">Price/hr</div>
                             <div class="value">
                                 <div class="row row-space">
                                     <div class="col-2">
                                         <div class="input-group-desc">
-                                            <input class="input--style-5" type="number" name="number">
+                                            <input class="input--style-5" type="number" name="price2">
                                             <label class="label--desc">2-Wheeler</label>
                                         </div>
                                     </div>
                                     <div class="col-2">
                                         <div class="input-group-desc">
-                                            <input class="input--style-5" type="number" name="number">
+                                            <input class="input--style-5" type="number" name="price4">
                                             <label class="label--desc">4-Wheeler</label>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                            <button class="btn btn--radius-2 btn--red" type="submit">Submit</button>
-                        </div>
-                    </form>
+                        <button class="btn btn--radius-2 btn--red" type="submit">Submit</button>
                 </div>
+                </form>
             </div>
         </div>
+    </div>
     </div>
 
     <!-- Jquery JS-->
