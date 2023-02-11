@@ -1,6 +1,9 @@
 <?php
 session_start();
 include_once("../config/config.php");
+if(!isset($_SESSION['email'])){
+  header("location: ../signIn/login.php");
+}
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
   if (isset($_POST['pincode'])) {
     $pincode = $_POST['pincode'];

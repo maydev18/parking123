@@ -12,12 +12,12 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         $number2 = $_POST['number2'];
         $number4 = $_POST['number4'];
         $email = $_SESSION['email'];
-        $available = 0;
+        $available = 1;
         $sql = "INSERT INTO places (state, city , address , pincode , twowheeler , fourwheeler , twoprice , fourprice ,available , email) VALUES ('$state', '$city' , '$address' , '$pincode' , '$number2' , '$number4' , '$price2' , '$price4' , '$available' , '$email')";
         $result = mysqli_query($conn, $sql);
         if ($result) {
             echo "successfully added";
-            header("location: ../index.html");
+            header("location: ../index.php");
         } else {
             echo 'cannot redirect';
         }

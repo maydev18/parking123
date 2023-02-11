@@ -9,12 +9,14 @@
   <meta content="" name="description">
   <meta content="" name="keywords">
 
-  
+
   <link href="assets/img/favicon.png" rel="icon">
   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
- 
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <link
+    href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+    rel="stylesheet">
 
   <link href="assets/vendor/aos/aos.css" rel="stylesheet">
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -26,26 +28,22 @@
 
   <link href="assets/css/style.css" rel="stylesheet">
 
-<!--first form -->
-  <link
-  rel="stylesheet"
-  href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"
-/>
-        <link rel="stylesheet" href="css/style.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
-    
+  <!--first form -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+
 
 
 </head>
 
 <body>
-
   <!-- ======= Header ======= -->
   <header id="header" class="fixed-top ">
     <div class="container d-flex align-items-center justify-content-lg-between">
 
       <h1 class="logo me-auto me-lg-0"><a href="index.html">PI<span>.</span></a></h1>
-    
+
 
       <nav id="navbar" class="navbar order-last order-lg-0">
         <ul>
@@ -54,15 +52,30 @@
           <li><a class="nav-link scrollto" href="#services">Find parking</a></li>
           <li><a class="nav-link scrollto " href="#portfolio">Rent Space</a></li>
           <li><a class="nav-link scrollto" href="#team"></a></li>
-          
+
           <li><a class="nav-link scrollto" href="#contact">Contact Us</a></li>
+          <li><a class="nav-link scrollto" href="signIn/logout.php">Log Out</a></li>
+          <li><a class="nav-link scrollto" href="card/myrentals.php">My rentals</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
 
-      <a href="#about" class="get-started-btn scrollto">Login / Register</a>
-      
-
+      <a href="signIn/login.php" class="get-started-btn scrollto">
+        <?php
+        session_start();
+        include_once("config/config.php");
+        if(isset($_SESSION['email'])) {
+          $email = $_SESSION['email'];
+          $sql = "SELECT * FROM `users` WHERE `email` = '$email'";
+          $result = mysqli_query($conn, $sql);
+          $name = mysqli_fetch_assoc($result)['name'];
+          echo "Welcome ".$name;
+        } 
+        else {
+          echo "Login / Signup";
+        }
+        ?>
+      </a>
     </div>
   </header>
   <!-- End Header -->
@@ -77,48 +90,53 @@
           <h1>FIND / RENT PARKING SPOTS<span></span></h1>
 
           <h2>Find parking spot beforehand and save time</h2>
-          
+
         </div>
       </div>
-       <section id="main-form">
+      <section id="main-form">
         <div class="col-xl-20 col-md-10">
-        
-          
-            <h3><a href="">RENT / FIND</a></h3>
-            <div class="container">
-              <div class="row">
-                  <div class="col-lg-10 col-xl-7 mx-auto">
-                      <h3 style="color: rgb(231, 233, 234)">Parking Management System</h3>
-                      <p class="text-muted mb-4"></p>
-                      <form>
-                          <div class="form-group mb-3">
-                          
-                              <input id="inputEmail" type="text" placeholder="State" required="" autofocus="" class="form-control rounded-pill border-0 shadow-sm px-4">
-                          </div>
-                          <div class="form-group mb-3">
-                            
-                              <input id="inputEmail" type="number" placeholder="PinCode" required="" autofocus="" class="form-control rounded-pill border-0 shadow-sm px-4">
-                          </div>
-                          <!-- <div class="form-group mb-3">
+
+
+          <h3><a href="">RENT / FIND</a></h3>
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-10 col-xl-7 mx-auto">
+                <h3 style="color: rgb(231, 233, 234)">Parking Management System</h3>
+                <p class="text-muted mb-4"></p>
+                <form action="card/card.php" method="POST">
+                  <div class="form-group mb-3">
+
+                    <input id="inputEmail" type="text" placeholder="State" required="" autofocus="" name="state"
+                      class="form-control rounded-pill border-0 shadow-sm px-4">
+                  </div>
+                  <div class="form-group mb-3">
+
+                    <input id="inputEmail" name="pincode" type="number" placeholder="PinCode" required="" autofocus=""
+                      class="form-control rounded-pill border-0 shadow-sm px-4">
+                  </div>
+                  <!-- <div class="form-group mb-3">
                               <input id="inputPassword" type="password" placeholder="Password" required="" class="form-control rounded-pill border-0 shadow-sm px-4 text-primary">
                           </div> -->
-                         
-  
-                          <button type="submit" class="btn btn-primary btn-block text-uppercase mb-2 rounded-pill shadow-sm">Search for Parking</button>
-                      </form>
-                      <br>
-                      <br>
-                      <br>
-                      <button type="submit" class="btn btn-primary2 btn-block text-uppercase mb-2 rounded-pill shadow-sm">click here for renting</button>
-                  </div>
+
+
+                  <button type="submit"
+                    class="btn btn-primary btn-block text-uppercase mb-2 rounded-pill shadow-sm">Search for
+                    Parking</button>
+                </form>
+                <br>
+                <br>
+                <br>
+                <button type="submit" class="btn btn-primary2 btn-block text-uppercase mb-2 rounded-pill shadow-sm"
+                  onclick="window.open('rental form/rentalform.php')">click here for renting</button>
               </div>
+            </div>
           </div><!-- End -->
 
-          </div>
-      
-      </div>
-    </section>
+        </div>
+
     </div>
+  </section>
+  </div>
   </section><!-- End Hero -->
 
   <main id="main">
@@ -135,12 +153,19 @@
             <h3>About Us</h3>
             <h2> A smarter, easier way to park</h2>
             <p class="fst-italic">
-              Our premise is simple: we connect drivers with parking spaces. Our award-winning platform makes searching, booking & paying for parking stress-free. Whether you’re looking for a parking space or have a driveway you’d like to rent out - we’re here to help.
+              Our premise is simple: we connect drivers with parking spaces. Our award-winning platform makes searching,
+              booking & paying for parking stress-free. Whether you’re looking for a parking space or have a driveway
+              you’d like to rent out - we’re here to help.
             </p>
             <ul>
-              <li><i class="ri-check-double-line"></i> Book parking in advance to benefit from a guaranteed space, closer to your destination and a saving of about 30% compared to ad hoc parking..</li>
-              <li><i class="ri-check-double-line"></i> Looking for longer term parking? Use JustPark’s Monthly Saver and save yourself up to 43%. A guaranteed space for as long as you need it. Cancel any time - no deposit, no contract.</li>
-              <li><i class="ri-check-double-line"></i> Rent out your unused driveway, parking space or garage for an extra income: The first £1,000 you earn is tax free. Add your listing, decide when the space is available to drivers, then just lean back and watch your earnings roll in.</li>
+              <li><i class="ri-check-double-line"></i> Book parking in advance to benefit from a guaranteed space,
+                closer to your destination and a saving of about 30% compared to ad hoc parking..</li>
+              <li><i class="ri-check-double-line"></i> Looking for longer term parking? Use JustPark’s Monthly Saver and
+                save yourself up to 43%. A guaranteed space for as long as you need it. Cancel any time - no deposit, no
+                contract.</li>
+              <li><i class="ri-check-double-line"></i> Rent out your unused driveway, parking space or garage for an
+                extra income: The first £1,000 you earn is tax free. Add your listing, decide when the space is
+                available to drivers, then just lean back and watch your earnings roll in.</li>
             </ul>
           </div>
         </div>
@@ -148,7 +173,7 @@
       </div>
     </section><!-- End About Section -->
 
-   <!--  
+    <!--  
     <section id="clients" class="clients">
       <div class="container" data-aos="zoom-in">
 
@@ -174,7 +199,8 @@
       <div class="container" data-aos="fade-up">
 
         <div class="row">
-          <div class="image col-lg-6" style='background-image: url("assets/img/features.jpg");' data-aos="fade-right"></div>
+          <div class="image col-lg-6" style='background-image: url("assets/img/features.jpg");' data-aos="fade-right">
+          </div>
           <div class="col-lg-6" data-aos="fade-left" data-aos-delay="100">
             <div class="icon-box mt-5 mt-lg-0" data-aos="zoom-in" data-aos-delay="150">
               <i class="bx bx-receipt"></i>
@@ -216,14 +242,15 @@
             <div class="icon-box">
               <div class="icon"><i class="bx bxl-dribbble"></i></div>
               <h4><a href="">Car Park Management</a></h4>
-              <p>Unused car parks, vacant land, extra space tansformed for parking space. 
-                <br>Secured, safe and efficient</p>
+              <p>Unused car parks, vacant land, extra space tansformed for parking space.
+                <br>Secured, safe and efficient
+              </p>
             </div>
           </div>
 
-         
 
-         <!--  <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-lg-0" data-aos="zoom-in" data-aos-delay="300">
+
+          <!--  <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-lg-0" data-aos="zoom-in" data-aos-delay="300">
             <div class="icon-box">
               <div class="icon"><i class="bx bx-tachometer"></i></div>
               <h4><a href="">EV Charging Space</a></h4>
@@ -234,11 +261,11 @@
           <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4" data-aos="zoom-in" data-aos-delay="100">
             <div class="icon-box">
               <div class="icon"><i class="bx bx-world"></i></div>
-              <h4><a href="">  How Renting is working here ?  </a></h4>
-              <p>   Add your own space   <br>
+              <h4><a href=""> How Renting is working here ? </a></h4>
+              <p> Add your own space <br>
                 <tb>Find out how much you will earn.<br>
-                Drivers will find your space.<br>
-                Sit back & earn easily.
+                  Drivers will find your space.<br>
+                  Sit back & earn easily.
               </p>
             </div>
           </div>
@@ -255,7 +282,7 @@
             </div>
           </div>
 
-        <!--   <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4" data-aos="zoom-in" data-aos-delay="300">
+          <!--   <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4" data-aos="zoom-in" data-aos-delay="300">
             <div class="icon-box">
               <div class="icon"><i class="bx bx-arch"></i></div>
               <h4><a href="">Divera don</a></h4>
@@ -268,8 +295,8 @@
       </div>
     </section><!-- End Services Section -->
 
-     <!-- ======= Testimonials Section ======= -->
-     <section id="testimonials" class="testimonials">
+    <!-- ======= Testimonials Section ======= -->
+    <section id="testimonials" class="testimonials">
       <div class="container" data-aos="zoom-in">
 
         <div class="testimonials-slider swiper" data-aos="fade-up" data-aos-delay="100">
@@ -282,7 +309,8 @@
                 <h4>Ceo &amp; Founder</h4>
                 <p>
                   <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                  Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.
+                  Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium
+                  quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.
                   <i class="bx bxs-quote-alt-right quote-icon-right"></i>
                 </p>
               </div>
@@ -295,7 +323,8 @@
                 <h4>Designer</h4>
                 <p>
                   <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                  Export tempor illum tamen malis malis eram quae irure esse labore quem cillum quid cillum eram malis quorum velit fore eram velit sunt aliqua noster fugiat irure amet legam anim culpa.
+                  Export tempor illum tamen malis malis eram quae irure esse labore quem cillum quid cillum eram malis
+                  quorum velit fore eram velit sunt aliqua noster fugiat irure amet legam anim culpa.
                   <i class="bx bxs-quote-alt-right quote-icon-right"></i>
                 </p>
               </div>
@@ -308,7 +337,8 @@
                 <h4>Store Owner</h4>
                 <p>
                   <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                  Enim nisi quem export duis labore cillum quae magna enim sint quorum nulla quem veniam duis minim tempor labore quem eram duis noster aute amet eram fore quis sint minim.
+                  Enim nisi quem export duis labore cillum quae magna enim sint quorum nulla quem veniam duis minim
+                  tempor labore quem eram duis noster aute amet eram fore quis sint minim.
                   <i class="bx bxs-quote-alt-right quote-icon-right"></i>
                 </p>
               </div>
@@ -321,7 +351,8 @@
                 <h4>Freelancer</h4>
                 <p>
                   <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                  Fugiat enim eram quae cillum dolore dolor amet nulla culpa multos export minim fugiat minim velit minim dolor enim duis veniam ipsum anim magna sunt elit fore quem dolore labore illum veniam.
+                  Fugiat enim eram quae cillum dolore dolor amet nulla culpa multos export minim fugiat minim velit
+                  minim dolor enim duis veniam ipsum anim magna sunt elit fore quem dolore labore illum veniam.
                   <i class="bx bxs-quote-alt-right quote-icon-right"></i>
                 </p>
               </div>
@@ -334,7 +365,8 @@
                 <h4>Entrepreneur</h4>
                 <p>
                   <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                  Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor noster veniam enim culpa labore duis sunt culpa nulla illum cillum fugiat legam esse veniam culpa fore nisi cillum quid.
+                  Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor noster veniam enim culpa
+                  labore duis sunt culpa nulla illum cillum fugiat legam esse veniam culpa fore nisi cillum quid.
                   <i class="bx bxs-quote-alt-right quote-icon-right"></i>
                 </p>
               </div>
@@ -348,34 +380,39 @@
 
 
 
-    
+
     <!-- ======= Counts Section ======= -->
     <section id="counts" class="counts">
       <div class="container" data-aos="fade-up">
 
         <div class="row no-gutters">
-          <div class="image col-xl-5 d-flex align-items-stretch justify-content-center justify-content-lg-start" data-aos="fade-right" data-aos-delay="100"></div>
-          <div class="col-xl-7 ps-0 ps-lg-5 pe-lg-1 d-flex align-items-stretch" data-aos="fade-left" data-aos-delay="100">
+          <div class="image col-xl-5 d-flex align-items-stretch justify-content-center justify-content-lg-start"
+            data-aos="fade-right" data-aos-delay="100"></div>
+          <div class="col-xl-7 ps-0 ps-lg-5 pe-lg-1 d-flex align-items-stretch" data-aos="fade-left"
+            data-aos-delay="100">
             <div class="content d-flex flex-column justify-content-center">
               <h3></h3>
               <p>
-                People all around India have been successfully using our services and earning money and finding parking spots easily.
+                People all around India have been successfully using our services and earning money and finding parking
+                spots easily.
               </p>
               <div class="row">
                 <div class="col-md-6 d-md-flex align-items-md-stretch">
                   <div class="count-box">
                     <i class="bi bi-emoji-smile"></i>
-                    <span data-purecounter-start="0" data-purecounter-end="65" data-purecounter-duration="2" class="purecounter"></span>
+                    <span data-purecounter-start="0" data-purecounter-end="65" data-purecounter-duration="2"
+                      class="purecounter"></span>
                     <p><strong>Happy Clients</strong> People using our services are saving time </p>
                   </div>
                 </div>
 
-                
+
 
                 <div class="col-md-6 d-md-flex align-items-md-stretch">
                   <div class="count-box">
                     <i class="bi bi-clock"></i>
-                    <span data-purecounter-start="0" data-purecounter-end="150" data-purecounter-duration="4" class="purecounter"></span>
+                    <span data-purecounter-start="0" data-purecounter-end="150" data-purecounter-duration="4"
+                      class="purecounter"></span>
                     <p><strong>Happy Renters</strong> People are earning money with us</p>
                   </div>
                 </div>
@@ -395,15 +432,15 @@
         <div class="text-center">
           <h3>Contact Us</h3>
           <p> Email: <br>
-              Contact NO. :<br>
-              </p>
+            Contact NO. :<br>
+          </p>
           <a class="cta-btn" href="#">Call To Action</a>
         </div>
 
       </div>
     </section><!-- End Cta Section -->
 
-    
+
     <!-- ======= Contact Section ======= -->
     <section id="contact" class="contact">
       <div class="container" data-aos="fade-up">
@@ -414,7 +451,9 @@
         </div>
 
         <div>
-          <iframe style="border:0; width: 100%; height: 270px;" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12097.433213460943!2d-74.0062269!3d40.7101282!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xb89d1fe6bc499443!2sDowntown+Conference+Center!5e0!3m2!1smk!2sbg!4v1539943755621" frameborder="0" allowfullscreen></iframe>
+          <iframe style="border:0; width: 100%; height: 270px;"
+            src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12097.433213460943!2d-74.0062269!3d40.7101282!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xb89d1fe6bc499443!2sDowntown+Conference+Center!5e0!3m2!1smk!2sbg!4v1539943755621"
+            frameborder="0" allowfullscreen></iframe>
         </div>
 
         <div class="row mt-5">
@@ -424,7 +463,7 @@
               <div class="address">
                 <i class="bi bi-geo-alt"></i>
                 <h4>Location:</h4>
-                <p> A108 bwushwbjkd 
+                <p> A108 bwushwbjkd
                   Delhi 1220, INDIa</p>
               </div>
 
@@ -475,8 +514,8 @@
 
       </div>
     </section><!-- End Contact Section -->
-   
-   
+
+
 
 
   </main><!-- End #main -->
@@ -546,13 +585,13 @@
         &copy; Copyright <strong><span>Gp</span></strong>. All Rights Reserved
       </div>
       <div class="credits">
-       
+
         Designed by <a href="">NOOB CODERS</a>
       </div>
     </div>
   </footer><!-- End Footer -->
 
- 
+
   <!-- Vendor JS Files -->
   <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
   <script src="assets/vendor/aos/aos.js"></script>

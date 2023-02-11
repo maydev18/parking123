@@ -1,6 +1,9 @@
 <?php
 session_start();
 include_once("../config/config.php");
+if(!isset($_SESSION['email'])){
+  header('location: ../signIn/login.php');
+}
 // if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true || $_SESSION['username'] != 'admin@gym') {
 //   header("location: loginform.php");
 // }
