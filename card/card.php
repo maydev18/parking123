@@ -44,8 +44,12 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 </head>
 <style>
   .main-content {
-	padding : 0;
+	padding : 0;}
+  body {
+  background-image: url('https://www.bproperty.com/blog/wp-content/uploads/2021/08/claudio-schwarz-I1xBVE3PDs-unsplash.jpg');
 }
+
+
 </style>
 <body>
   <br>
@@ -56,7 +60,8 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         $result = mysqli_query($conn, $sql);
         $num = mysqli_num_rows($result); //gives total number of rows
         while ($row = mysqli_fetch_assoc($result)) {
-          $msg = '<section class="main-content">
+          $msg = '<a href = "../map/map.html">
+          <section class="main-content">
           <div class="container">
             <!-- <h1 class="text-uppercase"></h1> -->
             <br>
@@ -123,7 +128,10 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
               </div>
             </div>
           </div>
-        </section>';
+        </section>
+          
+          
+          ';
           echo $msg;
         }
         ?>

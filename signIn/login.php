@@ -37,6 +37,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="login.css">
+
 </head>
 
 <body>
@@ -45,14 +46,15 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
             <!-- The image half -->
             <div class="col-md-6 d-none d-md-flex bg-image"></div>
             <!-- The content half -->
-            <div class="col-md-6 bg-light">
+            <div class="col-md-6 bg-light bg-image2">
                 <div class="login d-flex align-items-center py-5">
 
                     <!-- Demo content-->
                     <div class="container">
                         <div class="row">
                             <div class="col-lg-10 col-xl-7 mx-auto">
-                                <h3 class="display-4">Parking Management System</h3>
+                                <h2 class="display-4 
+                                " style="color:white">Park Yaha</h2>
                                 <p class="text-muted mb-4"></p>
                                 <form action="login.php" method="POST">
                                     <div class="form-group mb-3">
@@ -67,9 +69,9 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                                             class="form-control rounded-pill border-0 shadow-sm px-4 text-primary">
                                     </div>
                                     <button type="submit"
-                                        class="btn btn-primary btn-block text-uppercase mb-2 rounded-pill shadow-sm">Login</button>
+                                        class="btn btn-primary2 btn-block text-uppercase mb-2 rounded-pill shadow-sm">Login</button>
                                     <button onclick="window.open('signupform.php' , target = '_self')"
-                                        class="btn btn-primary btn-block text-uppercase mb-2 rounded-pill shadow-sm">Sign
+                                        class="btn btn-primary2 btn-block text-uppercase mb-2 rounded-pill shadow-sm">Sign
                                         up</button>
                                 </form>
                             </div>

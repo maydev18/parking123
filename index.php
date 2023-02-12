@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>PI</title>
+  <title>PY</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -36,48 +36,16 @@
 
 
 </head>
-
+<style>
+  
+</style>
 <body>
+
+
   <!-- ======= Header ======= -->
-  <header id="header" class="fixed-top ">
-    <div class="container d-flex align-items-center justify-content-lg-between">
-
-      <h1 class="logo me-auto me-lg-0"><a href="index.html">PI<span>.</span></a></h1>
-
-
-      <nav id="navbar" class="navbar order-last order-lg-0">
-        <ul>
-          <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
-          <li><a class="nav-link scrollto" href="#about">About Us</a></li>
-          <li><a class="nav-link scrollto" href="#services">Find parking</a></li>
-          <li><a class="nav-link scrollto " href="#portfolio">Rent Space</a></li>
-          <li><a class="nav-link scrollto" href="#team"></a></li>
-
-          <li><a class="nav-link scrollto" href="#contact">Contact Us</a></li>
-          <li><a class="nav-link scrollto" href="signIn/logout.php">Log Out</a></li>
-          <li><a class="nav-link scrollto" href="card/myrentals.php">My rentals</a></li>
-        </ul>
-        <i class="bi bi-list mobile-nav-toggle"></i>
-      </nav><!-- .navbar -->
-
-      <a href="signIn/login.php" class="get-started-btn scrollto">
-        <?php
-        session_start();
-        include_once("config/config.php");
-        if(isset($_SESSION['email'])) {
-          $email = $_SESSION['email'];
-          $sql = "SELECT * FROM `users` WHERE `email` = '$email'";
-          $result = mysqli_query($conn, $sql);
-          $name = mysqli_fetch_assoc($result)['name'];
-          echo "Welcome ".$name;
-        } 
-        else {
-          echo "Login / Signup";
-        }
-        ?>
-      </a>
-    </div>
-  </header>
+  <?php
+    include_once('header.php');
+  // ?> 
   <!-- End Header -->
 
   <!-- ======= Hero Section ======= -->
@@ -101,7 +69,7 @@
           <div class="container">
             <div class="row">
               <div class="col-lg-10 col-xl-7 mx-auto">
-                <h3 style="color: rgb(231, 233, 234)">Parking Management System</h3>
+                <h3 style="color: rgb(231, 233, 234)">ParkYaha</h3>
                 <p class="text-muted mb-4"></p>
                 <form action="card/card.php" method="POST">
                   <div class="form-group mb-3">
@@ -305,12 +273,11 @@
             <div class="swiper-slide">
               <div class="testimonial-item">
                 <img src="assets/img/testimonials/testimonials-1.jpg" class="testimonial-img" alt="">
-                <h3>Saul Goodman</h3>
-                <h4>Ceo &amp; Founder</h4>
+                <h3>Anika Lohan</h3>
+                <h4>College Student</h4>
                 <p>
                   <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                  Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium
-                  quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.
+                  awesome app
                   <i class="bx bxs-quote-alt-right quote-icon-right"></i>
                 </p>
               </div>
@@ -319,12 +286,11 @@
             <div class="swiper-slide">
               <div class="testimonial-item">
                 <img src="assets/img/testimonials/testimonials-2.jpg" class="testimonial-img" alt="">
-                <h3>Sara Wilsson</h3>
-                <h4>Designer</h4>
+                <h3>Saumya Singhal</h3>
+                <h4>College Student</h4>
                 <p>
                   <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                  Export tempor illum tamen malis malis eram quae irure esse labore quem cillum quid cillum eram malis
-                  quorum velit fore eram velit sunt aliqua noster fugiat irure amet legam anim culpa.
+                 best app.
                   <i class="bx bxs-quote-alt-right quote-icon-right"></i>
                 </p>
               </div>
@@ -333,12 +299,11 @@
             <div class="swiper-slide">
               <div class="testimonial-item">
                 <img src="assets/img/testimonials/testimonials-3.jpg" class="testimonial-img" alt="">
-                <h3>Jena Karlis</h3>
-                <h4>Store Owner</h4>
+                <h3>Mayank Sharma</h3>
+                <h4>College Student</h4>
                 <p>
                   <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                  Enim nisi quem export duis labore cillum quae magna enim sint quorum nulla quem veniam duis minim
-                  tempor labore quem eram duis noster aute amet eram fore quis sint minim.
+                  Saves time
                   <i class="bx bxs-quote-alt-right quote-icon-right"></i>
                 </p>
               </div>
@@ -347,12 +312,11 @@
             <div class="swiper-slide">
               <div class="testimonial-item">
                 <img src="assets/img/testimonials/testimonials-4.jpg" class="testimonial-img" alt="">
-                <h3>Matt Brandon</h3>
-                <h4>Freelancer</h4>
+                <h3>Ishita Jain</h3>
+                <h4>College Student</h4>
                 <p>
                   <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                  Fugiat enim eram quae cillum dolore dolor amet nulla culpa multos export minim fugiat minim velit
-                  minim dolor enim duis veniam ipsum anim magna sunt elit fore quem dolore labore illum veniam.
+                  Good app.
                   <i class="bx bxs-quote-alt-right quote-icon-right"></i>
                 </p>
               </div>
@@ -361,12 +325,11 @@
             <div class="swiper-slide">
               <div class="testimonial-item">
                 <img src="assets/img/testimonials/testimonials-5.jpg" class="testimonial-img" alt="">
-                <h3>John Larson</h3>
-                <h4>Entrepreneur</h4>
+                <h3>Manav Verma</h3>
+                <h4>College Student</h4>
                 <p>
                   <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                  Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor noster veniam enim culpa
-                  labore duis sunt culpa nulla illum cillum fugiat legam esse veniam culpa fore nisi cillum quid.
+                 My favourite app.
                   <i class="bx bxs-quote-alt-right quote-icon-right"></i>
                 </p>
               </div>
@@ -385,9 +348,11 @@
     <section id="counts" class="counts">
       <div class="container" data-aos="fade-up">
 
-        <div class="row no-gutters">
+        <div class="row no-gutters" >
           <div class="image col-xl-5 d-flex align-items-stretch justify-content-center justify-content-lg-start"
-            data-aos="fade-right" data-aos-delay="100"></div>
+            data-aos="fade-right" data-aos-delay="100"   style= "background: url('assets\img\counts.jpg')">
+            <img src="assets\img\counts.jpg" width="500" height="500">
+          </div>
           <div class="col-xl-7 ps-0 ps-lg-5 pe-lg-1 d-flex align-items-stretch" data-aos="fade-left"
             data-aos-delay="100">
             <div class="content d-flex flex-column justify-content-center">
@@ -450,11 +415,7 @@
           <p>Contact Us</p>
         </div>
 
-        <div>
-          <iframe style="border:0; width: 100%; height: 270px;"
-            src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12097.433213460943!2d-74.0062269!3d40.7101282!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xb89d1fe6bc499443!2sDowntown+Conference+Center!5e0!3m2!1smk!2sbg!4v1539943755621"
-            frameborder="0" allowfullscreen></iframe>
-        </div>
+        
 
         <div class="row mt-5">
 
@@ -463,20 +424,20 @@
               <div class="address">
                 <i class="bi bi-geo-alt"></i>
                 <h4>Location:</h4>
-                <p> A108 bwushwbjkd
-                  Delhi 1220, INDIa</p>
+                <p> S202 Lodhi Colony
+                  Delhi 122018, INDIA</p>
               </div>
 
               <div class="email">
                 <i class="bi bi-envelope"></i>
                 <h4>Email:</h4>
-                <p>.com</p>
+                <p>parkYaha@gmail.com</p>
               </div>
 
               <div class="phone">
                 <i class="bi bi-phone"></i>
                 <h4>Call:</h4>
-                <p>+1</p>
+                <p>91+ 1123456789</p>
               </div>
 
             </div>
@@ -530,10 +491,10 @@
             <div class="footer-info">
               <h3>Gp<span>.</span></h3>
               <p>
-                A108 bwushwbjkd <br>
-                Delhi 1220, INDIa<br><br>
-                <strong>Phone:</strong> +1<br>
-                <strong>Email:</strong> .com<br>
+                  S202 Lodhi Colony <br>
+                  Delhi 122018, INDIA<br><br>
+                <strong>Phone:</strong> +1123456789<br>
+                <strong>Email:</strong> parkYaha@gmail.com<br>
               </p>
               <div class="social-links mt-3">
                 <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
@@ -569,7 +530,7 @@
 
           <div class="col-lg-4 col-md-6 footer-newsletter">
             <h4>Our Newsletter</h4>
-            <p>Tamen quem nulla quae legam multos aute sint culpa legam noster magna</p>
+            <p>Register for this.</p>
             <form action="" method="post">
               <input type="email" name="email"><input type="submit" value="Subscribe">
             </form>

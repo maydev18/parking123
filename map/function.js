@@ -2,8 +2,8 @@ $(document).ready(function() {
 	
 	var map;
 	var marker;
-	var lat = 28.7407056;
-	var lng = 77.0577493;
+	var lat = 28.7583;
+	var lng = -77.1946;
 	var ico = new google.maps.MarkerImage("https://webdevtrick.com/wp-content/uploads/location.png");
 	
 	var overlay = new google.maps.OverlayView();

@@ -141,7 +141,7 @@ if(!isset($_SESSION['email'])){
                       <div class="available">
                         <h4>'.$available.'</h4>
                       </div>
-                      <button type="button" class="edit btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal">Edit</button>' . " " . '<button type="button" class="delete btn btn-danger">Delete</button>
+                      <button type="button" class="edit btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal">Edit</button>' . " " . '<button type="button" class="delete btn btn-danger">Delete</button>'." ".'<button type="button" class="markfull btn btn-warning">Mark Full</button>
                     </div>
                     
                   </div>

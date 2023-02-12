@@ -94,7 +94,21 @@ body {
 }
 
 .bg-image {
-  background-image: url('https://img.freepik.com/premium-vector/parking-signal-ray-background-vector-illustration_24908-43467.jpg?w=740');
+  background-image: url('logo.jpeg');
   background-size: cover;
   background-position: center center;
+}
+.btn-primary2 {
+  color: #fff;
+  background-color: #ef7c24;
+  border-color: #ff6f00;
+}
+.bg-image2 {
+  background-image: url('https://crm-cdn.ams3.cdn.digitaloceanspaces.com/c21al/storage/c21al/2021/August/week1/1024x768/420089_architecture-cesar-bazkez-garages-parking-lot-wallpaper-preview.jpg');
+  background-size: cover;
+  background-position: center center;
+}
+
+.display-5{
+    color:white;
 }

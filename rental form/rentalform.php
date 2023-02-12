@@ -1,6 +1,9 @@
 <?php
 session_start();
 include_once("../config/config.php");
+if(!isset($_SESSION['email'])){
+    header('location: ../signIn/login.php');
+}
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
     if (isset($_POST['state'])) {
         $state = $_POST['state'];
@@ -45,9 +48,16 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
     <!-- Main CSS-->
     <link href="css/main.css" rel="stylesheet" media="all">
+    <style>
+body {
+  background-image: url('https://www.bproperty.com/blog/wp-content/uploads/2021/08/brydon-mccluskey-vMneecAwo34-unsplash.jpg');
+}
+</style>
 </head>
 
-<body>
+<body >
+    
+    
     <div class="page-wrapper bg-gra-03 p-t-45 p-b-50">
         <div class="wrapper wrapper--w790">
             <div class="card card-5">

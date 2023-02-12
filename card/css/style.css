@@ -49,3 +49,13 @@ body {
 .carousel .carousel-control-next {
 	background: linear-gradient(to left, #333333bb, #33333300);
 }
+
+#hero h1 {
+    padding: 100px 50px 50px 50px;
+    margin: 0;
+    font-size: 56px;
+    font-weight: 700;
+    line-height: 64px;
+    color: #fff;
+    font-family: "Poppins", sans-serif;
+}
